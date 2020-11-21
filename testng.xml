@@ -8,7 +8,7 @@
 
     <test name="Login">
         <classes>
-            <class name="org.cucumberOptions.TestRunner"/>
+            <class name="org.options.TestRunner"/>
         </classes>
     </test>
 

@@ -1,16 +1,12 @@
-package org.cucumberStepDefinitions;
+package org.stepDefinitions;
 
-import org.base.BasePage;
 import org.configuration.Setup;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
-import org.junit.Assert;
 import org.junit.runner.RunWith;
 
-
-@RunWith(Cucumber.class)
 public class AmazonSearchStepDefinitions extends Setup {
 
     @Given("^the user navigates to amazon$")
@@ -20,25 +16,24 @@ public class AmazonSearchStepDefinitions extends Setup {
 
     }
 
-    @Then("^assert that the item would be available for purchase$")
-    public void assert_that_the_item_would_be_available_for_purchase() throws Throwable {
+    @Given("^Searches for ‘Alexa’$")
+    public void searches_for_Alexa() throws Throwable {
 
     }
 
-    @And("^Searches for ‘Alexa’$")
-    public void searches_for_alexa() throws Throwable {
-
-    }
-
-    @And("^navigates to the second page$")
+    @Given("^navigates to the second page$")
     public void navigates_to_the_second_page() throws Throwable {
 
     }
 
-    @And("^selects the third item$")
+    @Given("^selects the third item$")
     public void selects_the_third_item() throws Throwable {
 
     }
 
+    @Then("^assert that the item would be available for purchase$")
+    public void assert_that_the_item_would_be_available_for_purchase() throws Throwable {
+
+    }
 
 }

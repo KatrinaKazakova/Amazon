@@ -7,6 +7,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import org.pageObjects.ItemPage;
 import org.pageObjects.SearchHeader;
 import org.pageObjects.SearchResultsPage;
 
@@ -22,7 +23,6 @@ public class AmazonSearchStepDefinitions extends Setup {
     public void searches_for_Alexa()  {
         SearchHeader sh=new SearchHeader(driver);
         sh.searchFor("alexa");
-
     }
 
     @Given("^navigates to the second page$")
@@ -35,11 +35,14 @@ public class AmazonSearchStepDefinitions extends Setup {
     public void selects_the_third_item()  {
         SearchResultsPage sr= new SearchResultsPage(driver);
         String product = sr.selectListItem(3);
+        ItemPage ip = new ItemPage(driver);
+        ip.verifyProductTitle(product);
     }
 
     @Then("^assert that the item would be available for purchase$")
-    public void assert_that_the_item_would_be_available_for_purchase() throws Throwable {
-
+    public void assert_that_the_item_would_be_available_for_purchase() {
+        ItemPage ip = new ItemPage(driver);
+        ip.verifyAddtoCartIsEnabled();
     }
 
 }

@@ -33,7 +33,8 @@ public class AmazonSearchStepDefinitions extends Setup {
 
     @Given("^selects the third item$")
     public void selects_the_third_item()  {
-
+        SearchResultsPage sr= new SearchResultsPage(driver);
+        String product = sr.selectListItem(3);
     }
 
     @Then("^assert that the item would be available for purchase$")

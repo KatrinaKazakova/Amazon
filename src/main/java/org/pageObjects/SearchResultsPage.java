@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 
 public class SearchResultsPage extends BasePage {
 
@@ -24,6 +22,13 @@ public class SearchResultsPage extends BasePage {
 		Assert.assertTrue(getCurrentUrl().contains("sr_pg_"+page));
 	}
 
-
+	public String selectListItem(int item) {
+		int itemIndex = item-1;
+		WebElement listItem = driver.findElement(By.xpath("//div[@data-index='" +itemIndex+"']"));
+		WebElement itemLink = listItem.findElement(By.xpath("div/span/div/div/div/div[2]/div/div[1]"));
+		String product = itemLink.getText();
+		itemLink.click();
+		return product;
+	}
 }
 

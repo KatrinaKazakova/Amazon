@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class SearchHeader extends BasePage {
+public class HeaderPage extends BasePage {
 
-    public SearchHeader(WebDriver driver) {
+    public HeaderPage(WebDriver driver) {
         super(driver);
     }
 

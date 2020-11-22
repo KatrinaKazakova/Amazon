@@ -27,6 +27,7 @@ public class SearchResultsPage extends BasePage {
 		WebElement listItem = driver.findElement(By.xpath("//div[@data-index='" +itemIndex+"']"));
 		WebElement itemLink = listItem.findElement(By.xpath("div/span/div/div/div/div[2]/div/div[1]"));
 		String product = itemLink.getText();
+		waitForVisibilityOfElement(itemLink);
 		itemLink.click();
 		return product;
 	}

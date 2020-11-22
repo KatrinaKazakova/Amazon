@@ -3,12 +3,8 @@ package org.stepDefinitions;
 import org.configuration.Setup;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.And;
-import cucumber.api.junit.Cucumber;
-import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
+import org.pageObjects.HeaderPage;
 import org.pageObjects.ItemPage;
-import org.pageObjects.SearchHeader;
 import org.pageObjects.SearchResultsPage;
 
 public class AmazonSearchStepDefinitions extends Setup {
@@ -21,8 +17,8 @@ public class AmazonSearchStepDefinitions extends Setup {
 
     @Given("^Searches for ‘Alexa’$")
     public void searches_for_Alexa()  {
-        SearchHeader sh=new SearchHeader(driver);
-        sh.searchFor("alexa");
+        HeaderPage h=new HeaderPage(driver);
+        h.searchFor("alexa");
     }
 
     @Given("^navigates to the second page$")
@@ -45,4 +41,8 @@ public class AmazonSearchStepDefinitions extends Setup {
         ip.verifyAddtoCartIsEnabled();
     }
 
+    @Then("^close the browser$")
+    public void close_the_browser() {
+        driver.quit();
+    }
 }

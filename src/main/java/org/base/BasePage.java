@@ -20,10 +20,10 @@ public class BasePage  {
         PageFactory.initElements(driver, this);
     }
 
-
     public String getPageTitle() {
         return driver.getTitle();
     }
+    public String getCurrentUrl() { return driver.getCurrentUrl(); }
 
     public void waitForVisibilityOfElement(WebElement element) {
         try {

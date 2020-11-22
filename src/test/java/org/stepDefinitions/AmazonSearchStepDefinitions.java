@@ -6,28 +6,33 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.And;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.pageObjects.SearchHeader;
+import org.pageObjects.SearchResultsPage;
 
 public class AmazonSearchStepDefinitions extends Setup {
 
     @Given("^the user navigates to amazon$")
-    public void the_user_navigates_to_amazon() throws Throwable {
+    public void the_user_navigates_to_amazon()  {
         driver = initializeDriver();
         hitUrl("https://www.amazon.com");
-
     }
 
     @Given("^Searches for ‘Alexa’$")
-    public void searches_for_Alexa() throws Throwable {
+    public void searches_for_Alexa()  {
+        SearchHeader sh=new SearchHeader(driver);
+        sh.searchFor("alexa");
 
     }
 
     @Given("^navigates to the second page$")
-    public void navigates_to_the_second_page() throws Throwable {
-
+    public void navigates_to_the_second_page()  {
+        SearchResultsPage sr= new SearchResultsPage(driver);
+        sr.selectPage("2");
     }
 
     @Given("^selects the third item$")
-    public void selects_the_third_item() throws Throwable {
+    public void selects_the_third_item()  {
 
     }
 
